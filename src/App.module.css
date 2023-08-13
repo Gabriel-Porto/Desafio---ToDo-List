@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--gray-600);
+
+  height: 100vh;
+
+
+}
+
+.wrapper::before {
+  content: "";
+  width: 100%;
+  height: 12.5rem;
+
+  background: var(--gray-700);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+
+  width: 3rem;
+  margin-top: calc(4.5rem - 12.5rem);
+}
+
+header h1 {
+  color: var(--blue, #4EA8DE);
+  font-family: Inter;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+header h1 span {
+  color: var(--purple-500, #4EA8DE);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: 46rem;
+  margin: 3.31rem 22rem;
+}
+
+main .todoInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  width: 100%;
+  height: 3.5rem;
+
+  border-radius: 0.5rem;
+}
+
+main .todoInput button {
+  padding: 1rem;
+  background-color: var(--blue-500);
+  border:none;
+  border-radius: 8px;
+  color: var(--gray-100);
+
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  transition: background-color 0.1s;
+}
+
+main .todoInput button:hover {
+  background-color: var(--blue-400);
+  cursor: pointer;
+
+}
