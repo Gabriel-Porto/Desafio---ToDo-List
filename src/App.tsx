@@ -1,7 +1,6 @@
 import styles from "./App.module.css"
 import rocket from "./assets/rocket.svg"
 import { Input } from "./Components/Input"
-import { Button } from "./Components/Button"
 
 import { PlusCircle } from "phosphor-react"
 
