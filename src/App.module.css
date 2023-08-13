@@ -14,30 +14,23 @@
   background: var(--gray-600);
 
   height: 100vh;
-
-
 }
 
-.wrapper::before {
-  content: "";
-  width: 100%;
-  height: 12.5rem;
-
-  background: var(--gray-700);
-}
 
 header {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-
-  width: 3rem;
-  margin-top: calc(4.5rem - 12.5rem);
+  
+  background: var(--gray-700);
+  width: 100%;
+  min-height: 12.5rem;
+  padding: 4.5rem auto 5rem;
 }
 
 header h1 {
-  color: var(--blue, #4EA8DE);
+  color: var(--blue, #4ea8de);
   font-family: Inter;
   font-size: 2.5rem;
   font-style: normal;
@@ -46,16 +39,16 @@ header h1 {
 }
 
 header h1 span {
-  color: var(--purple-500, #4EA8DE);
+  color: var(--purple-500, #4ea8de);
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   width: 46rem;
-  margin: 3.31rem 22rem;
+  margin: -1.625rem 22rem;
 }
 
 main .todoInput {
@@ -73,7 +66,7 @@ main .todoInput {
 main .todoInput button {
   padding: 1rem;
   background-color: var(--blue-500);
-  border:none;
+  border: none;
   border-radius: 8px;
   color: var(--gray-100);
 
@@ -90,5 +83,63 @@ main .todoInput button {
 main .todoInput button:hover {
   background-color: var(--blue-400);
   cursor: pointer;
+}
 
+.tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  width: 100%;
+  margin: 4rem 22rem;
+
+}
+
+.info {
+ display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.totalCreated p {
+  margin-right: 0.5rem;
+  color: var(--blue-400);
+  display: inline;
+}
+
+.amountCompleted p {
+  margin-right: 0.5rem;
+  color: var(--purple-400);
+  display: inline;
+
+}
+
+.total {
+  color: var(--blue-400);
+}
+
+.info span {
+  font-size: 12px;
+  background: var(--gray-400);
+  border-radius: 999px;
+  padding: 0.12rem 0.5rem;
+}
+
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  width: 100%;
 }
