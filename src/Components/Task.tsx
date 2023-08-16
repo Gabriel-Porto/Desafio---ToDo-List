@@ -1,26 +1,46 @@
 import { useState } from "react"
 import styles from "./Task.module.css"
 import { Trash } from "phosphor-react"
+import { Checkbox } from "./Checkbox"
 
 interface TaskProps {
-  task: string
+  task: TaskType
   isCompleted: boolean
 }
 
-export function Task({ task = "", isCompleted = false }: TaskProps) {
-  const [isTaskCompleted, setIsTaskCompleted] = useState(isCompleted)
+export interface TaskType {
+  id: number
+  content: string
+  isCompleted: boolean
+}
 
-  function handleTaskDone() {
+export function Task({ task }: TaskProps) {
+  const [isTaskCompleted, setIsTaskCompleted] = useState(task.isCompleted)
+
+  function toggleTaskDone() {
     setIsTaskCompleted(!isTaskCompleted)
+  }
+
+  function deleteTask() {
+
   }
 
   return (
     <div className={styles.task}>
-      <button className={styles.checkbox} />
-      <label htmlFor="task">{task}</label>
+      <Checkbox isCompleted={isTaskCompleted} checkTask={toggleTaskDone} />
 
-      <button onClick={handleTaskDone} className={styles.deleteTask}>
-        <Trash  />
+      {isTaskCompleted ? (
+        <label className={styles.labelChecked} htmlFor="task">
+          {task.content}
+        </label>
+      ) : (
+        <label className={styles.labelNotChecked} htmlFor="task">
+          {task.content}
+        </label>
+      )}
+
+      <button onClick={deleteTask} className={styles.deleteTask}>
+        <Trash />
       </button>
     </div>
   )

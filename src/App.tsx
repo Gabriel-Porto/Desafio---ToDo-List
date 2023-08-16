@@ -1,39 +1,52 @@
 import styles from "./App.module.css"
 import rocket from "./assets/rocket.svg"
 import { Input } from "./Components/Input"
-import { Task } from "./Components/Task"
+import { Task, TaskType } from "./Components/Task"
+// import { useState } from "react"
 
 import { PlusCircle } from "phosphor-react"
 
-const todoList = [
+const todoList: TaskType[] = [
   {
     id: 1,
-    task: "Estudar React",
+    content: "Estudar React",
     isCompleted: false,
   },
   {
     id: 2,
-    task: "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
+    content:
+      "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
     isCompleted: false,
   },
   {
     id: 3,
-    task: "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
+    content:
+      "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
     isCompleted: false,
   },
   {
     id: 4,
-    task: "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
+    content:
+      "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
     isCompleted: false,
   },
   {
     id: 5,
-    task: "Estudar TypeScript",
+    content: "Estudar TypeScript",
     isCompleted: false,
   },
 ]
 
 function App() {
+
+  // const [tasks, setTasks] = useState<TaskType[]>(todoList)
+
+  // function deleteTask() {
+  //   const TasksWithOutDeletedOne = todoList.filter((task) => task.id !== 1)
+
+  //   setTasks(TasksWithOutDeletedOne)
+  // }
+
   return (
     <div className={styles.wrapper}>
       <header>
@@ -69,7 +82,7 @@ function App() {
             {todoList.map((task) => (
               <Task
                 key={task.id}
-                task={task.task}
+                task={task}
                 isCompleted={task.isCompleted}
               />
             ))}

@@ -12,41 +12,30 @@
   border: 1px solid var(--gray-400);
 }
 
-.checkbox {
-  align-self: start;
-
-  min-width: 1.09rem;
-  min-height: 1.09rem;
-  margin: 0.2rem;
-
-  border: 2px solid var(--blue-400);
-  border-radius: 50%;
-  cursor: pointer;
-
-  background-color: var(--gray-500);
-}
-
-.checkbox:hover {
-  color: var(--blue-400);
-  background-color: var(--blue-500);
-}
-
-.task label {
+.labelNotChecked {
   width: 100%;
   display: flex;
   align-items: start;
   gap: 0.75rem;
 
-  font-family: Inter;
   font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
+}
+
+.labelChecked {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  gap: 0.75rem;
+  font-size: 14px;
+  
+  text-decoration: line-through;
+  color: var(--gray-300);
 }
 
 .deleteTask {
   width: 12.47px;
   height: 14px;
-    
+
   align-self: start;
 
   color: var(--gray-300);
@@ -57,5 +46,5 @@
 }
 
 .deleteTask:hover svg {
-    color: var(--red-500);
+  color: var(--red-500);
 }

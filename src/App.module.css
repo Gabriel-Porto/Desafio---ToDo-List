@@ -16,13 +16,12 @@
   height: 100vh;
 }
 
-
 header {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  
+
   background: var(--gray-700);
   width: 100%;
   min-height: 12.5rem;
@@ -94,11 +93,10 @@ main .todoInput button:hover {
 
   width: 100%;
   margin: 4rem 22rem;
-
 }
 
 .info {
- display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -119,7 +117,6 @@ main .todoInput button:hover {
   margin-right: 0.5rem;
   color: var(--purple-400);
   display: inline;
-
 }
 
 .total {
@@ -130,9 +127,8 @@ main .todoInput button:hover {
   font-size: 12px;
   background: var(--gray-400);
   border-radius: 999px;
-  padding: 0.12rem 0.5rem;
+  padding: 0.13rem 0.5rem;
 }
-
 
 .list {
   display: flex;
