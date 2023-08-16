@@ -2,7 +2,7 @@ import styles from "./App.module.css"
 import rocket from "./assets/rocket.svg"
 import { Input } from "./Components/Input"
 import { Task, TaskType } from "./Components/Task"
-// import { useState } from "react"
+import { useState, FormEvent, ChangeEvent } from "react"
 
 import { PlusCircle } from "phosphor-react"
 
@@ -12,40 +12,40 @@ const todoList: TaskType[] = [
     content: "Estudar React",
     isCompleted: false,
   },
-  {
-    id: 2,
-    content:
-      "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    content:
-      "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
-    isCompleted: false,
-  },
-  {
-    id: 4,
-    content:
-      "lorem ipsum dolor sit amet  consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua  Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum  ",
-    isCompleted: false,
-  },
-  {
-    id: 5,
-    content: "Estudar TypeScript",
-    isCompleted: false,
-  },
 ]
 
 function App() {
 
-  // const [tasks, setTasks] = useState<TaskType[]>(todoList)
+  //TODO: Criar função para mostrar total e quantas tasks estão completas
+  //TODO: Criar função para salvar no localStorage?
 
-  // function deleteTask() {
-  //   const TasksWithOutDeletedOne = todoList.filter((task) => task.id !== 1)
+  const [tasks, setTasks] = useState<TaskType[]>(todoList)
 
-  //   setTasks(TasksWithOutDeletedOne)
-  // }
+  const [newTaskText, setNewTaskText] = useState("")
+
+  function handleTaskSubmit(event: FormEvent) {
+    event.preventDefault()
+
+    setTasks([
+      ...tasks,
+      {
+        id: tasks.length + 1,
+        content: newTaskText.trim(),
+        isCompleted: false,
+      },
+    ])
+
+    setNewTaskText("")
+  }
+
+  function handlenewTaskTextChange(event: ChangeEvent<HTMLInputElement>) {
+    setNewTaskText(event.target.value)
+  }
+
+  function deleteTask(id: number) {
+    const TasksWithOutDeletedOne = tasks.filter((task) => task.id !== id)
+    setTasks(TasksWithOutDeletedOne)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -57,10 +57,14 @@ function App() {
       </header>
 
       <main>
-        <form className={styles.todoInput}>
-          <Input placeholder="Adicione uma nova tarefa" />
+        <form onSubmit={handleTaskSubmit} className={styles.todoInput}>
+          <Input
+            value={newTaskText}
+            placeholder="Adicione uma nova tarefa"
+            onChange={handlenewTaskTextChange}
+          />
 
-          <button>
+          <button type="submit">
             Criar
             <PlusCircle size={20} />
           </button>
@@ -79,11 +83,12 @@ function App() {
           </div>
 
           <div className={styles.list}>
-            {todoList.map((task) => (
+            {tasks.map((task) => (
               <Task
                 key={task.id}
                 task={task}
                 isCompleted={task.isCompleted}
+                onDeleteTask={deleteTask}
               />
             ))}
           </div>

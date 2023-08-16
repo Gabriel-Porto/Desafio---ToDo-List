@@ -6,6 +6,7 @@ import { Checkbox } from "./Checkbox"
 interface TaskProps {
   task: TaskType
   isCompleted: boolean
+  onDeleteTask: (id: number) => void
 }
 
 export interface TaskType {
@@ -14,15 +15,16 @@ export interface TaskType {
   isCompleted: boolean
 }
 
-export function Task({ task }: TaskProps) {
+export function Task({ task, onDeleteTask }: TaskProps) {
   const [isTaskCompleted, setIsTaskCompleted] = useState(task.isCompleted)
 
   function toggleTaskDone() {
     setIsTaskCompleted(!isTaskCompleted)
   }
 
-  function deleteTask() {
+  function handleDeleteTask() {
 
+    onDeleteTask(task.id)
   }
 
   return (
@@ -39,7 +41,7 @@ export function Task({ task }: TaskProps) {
         </label>
       )}
 
-      <button onClick={deleteTask} className={styles.deleteTask}>
+      <button onClick={handleDeleteTask} className={styles.deleteTask}>
         <Trash />
       </button>
     </div>
