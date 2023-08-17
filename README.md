@@ -1,27 +1,23 @@
-# React + TypeScript + Vite
+<h1 align="center" id="title">ToDo-List</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center"><img src="https://socialify.git.ci/Gabriel-Porto/ToDo-List/image?font=Inter&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Signal&amp;stargazers=1&amp;theme=Dark" alt="project-image"></p>
 
-Currently, two official plugins are available:
+<p id="description">A todo list made with react and typescript where a learned concepts such as states components props closures svg manipulation and imutability.</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>🚀 Demo</h2>
 
-## Expanding the ESLint configuration
+[https://todo-list-bygabriel.vercel.app/](https://todo-list-bygabriel.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h2>Project Screenshots:</h2>
 
-- Configure the top-level `parserOptions` property like this:
+<img src="" alt="project-screenshot" width="400" height="400/">
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+  
+  
+<h2>💻 Built with</h2>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Technologies used in the project:
+
+*   ReactJS
+*   Typescript
+*   CSS modules
