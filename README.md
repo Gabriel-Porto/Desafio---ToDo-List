@@ -8,12 +8,6 @@
 
 [https://todo-list-bygabriel.vercel.app/](https://todo-list-bygabriel.vercel.app/)
 
-<h2>Project Screenshots:</h2>
-
-<img src="" alt="project-screenshot" width="400" height="400/">
-
-  
-  
 <h2>💻 Built with</h2>
 
 Technologies used in the project:
