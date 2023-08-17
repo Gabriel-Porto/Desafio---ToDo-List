@@ -50,7 +50,7 @@ main {
   margin: -1.625rem 22rem;
 }
 
-main .todoInput {
+.todoInput {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +62,7 @@ main .todoInput {
   border-radius: 0.5rem;
 }
 
-main .todoInput button {
+.todoInput button {
   padding: 1rem;
   background-color: var(--blue-500);
   border: none;
@@ -76,12 +76,17 @@ main .todoInput button {
   justify-content: center;
   gap: 0.5rem;
 
-  transition: background-color 0.1s;
+  transition: 0.2s;
 }
 
-main .todoInput button:hover {
+.todoInput button:hover {
   background-color: var(--blue-400);
   cursor: pointer;
+}
+
+.todoInput button[type="submit"]:disabled {
+  background-color: var(--gray-400);
+  cursor: not-allowed;
 }
 
 .tasks {
@@ -139,3 +144,6 @@ main .todoInput button:hover {
 
   width: 100%;
 }
+
+
+

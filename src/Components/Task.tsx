@@ -25,7 +25,6 @@ export function Task({ task, onDeleteTask, onCheckTask }: TaskProps) {
   }
 
   function handleDeleteTask() {
-
     onDeleteTask(task.id)
   }
 

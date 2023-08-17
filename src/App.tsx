@@ -2,7 +2,7 @@ import styles from "./App.module.css"
 import rocket from "./assets/rocket.svg"
 import { Input } from "./Components/Input"
 import { Task, TaskType } from "./Components/Task"
-import { useState, FormEvent, ChangeEvent } from "react"
+import { useState, FormEvent, ChangeEvent, InvalidEvent } from "react"
 
 import { PlusCircle } from "phosphor-react"
 
@@ -23,7 +23,7 @@ function App() {
     (task) => task.isCompleted === true
   ).length
 
-  //TODO: Criar função para salvar no localStorage?
+  const isNewTaskEmpty = newTaskText.length === 0
 
   function handleTaskSubmit(event: FormEvent) {
     event.preventDefault()
@@ -63,6 +63,11 @@ function App() {
     setTasks(updatedTasks)
   }
 
+  function handleNewInvalidTask(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("Este campo é obrigatório!")
+      
+  }
+
   return (
     <div className={styles.wrapper}>
       <header>
@@ -78,9 +83,10 @@ function App() {
             value={newTaskText}
             placeholder="Adicione uma nova tarefa"
             onChange={handlenewTaskTextChange}
+            onInvalid={handleNewInvalidTask}
           />
 
-          <button type="submit">
+          <button type="submit" disabled={isNewTaskEmpty}>
             Criar
             <PlusCircle size={20} />
           </button>
