@@ -7,6 +7,7 @@ interface TaskProps {
   task: TaskType
   isCompleted: boolean
   onDeleteTask: (id: number) => void
+  onCheckTask: (id: number) => void
 }
 
 export interface TaskType {
@@ -15,10 +16,11 @@ export interface TaskType {
   isCompleted: boolean
 }
 
-export function Task({ task, onDeleteTask }: TaskProps) {
+export function Task({ task, onDeleteTask, onCheckTask }: TaskProps) {
   const [isTaskCompleted, setIsTaskCompleted] = useState(task.isCompleted)
 
   function toggleTaskDone() {
+    onCheckTask(task.id)
     setIsTaskCompleted(!isTaskCompleted)
   }
 
@@ -29,7 +31,7 @@ export function Task({ task, onDeleteTask }: TaskProps) {
 
   return (
     <div className={styles.task}>
-      <Checkbox isCompleted={isTaskCompleted} checkTask={toggleTaskDone} />
+      <Checkbox isCompleted={isTaskCompleted} onCheckTask={toggleTaskDone} />
 
       {isTaskCompleted ? (
         <label className={styles.labelChecked} htmlFor="task">

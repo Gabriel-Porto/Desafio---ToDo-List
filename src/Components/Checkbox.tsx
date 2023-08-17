@@ -2,14 +2,14 @@ import styles from "./Checkbox.module.css"
 import { Check } from "phosphor-react"
 
 interface CheckboxProps {
-  checkTask: () => void
+  onCheckTask: () => void
   isCompleted: boolean
 }
 
-export function Checkbox({ checkTask, isCompleted }: CheckboxProps) {
+export function Checkbox({ onCheckTask, isCompleted }: CheckboxProps) {
   
   function handleToggleTaskDone() {
-    checkTask()
+    onCheckTask()
   }
 
   return (

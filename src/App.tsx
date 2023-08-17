@@ -15,13 +15,15 @@ const todoList: TaskType[] = [
 ]
 
 function App() {
-
-  //TODO: Criar função para mostrar total e quantas tasks estão completas
-  //TODO: Criar função para salvar no localStorage?
-
   const [tasks, setTasks] = useState<TaskType[]>(todoList)
 
   const [newTaskText, setNewTaskText] = useState("")
+
+  const amountTaskCompleted = tasks.filter(
+    (task) => task.isCompleted === true
+  ).length
+
+  //TODO: Criar função para salvar no localStorage?
 
   function handleTaskSubmit(event: FormEvent) {
     event.preventDefault()
@@ -45,6 +47,20 @@ function App() {
   function deleteTask(id: number) {
     const TasksWithOutDeletedOne = tasks.filter((task) => task.id !== id)
     setTasks(TasksWithOutDeletedOne)
+  }
+
+  function handleCheckTask(id: number) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        }
+      }
+      return task
+    })
+
+    setTasks(updatedTasks)
   }
 
   return (
@@ -74,20 +90,23 @@ function App() {
           <div className={styles.info}>
             <div className={styles.totalCreated}>
               <p>Tarefas criadas</p>
-              <span>5</span>
+              <span>{tasks.length}</span>
             </div>
             <div className={styles.amountCompleted}>
               <p>Concluídas</p>
-              <span>2 de 5</span>
+              <span>
+                {amountTaskCompleted} de {tasks.length}
+              </span>
             </div>
           </div>
 
           <div className={styles.list}>
-            {tasks.map((task) => (
+            {tasks.map((task, index) => (
               <Task
-                key={task.id}
+                key={index}
                 task={task}
                 isCompleted={task.isCompleted}
+                onCheckTask={handleCheckTask}
                 onDeleteTask={deleteTask}
               />
             ))}
