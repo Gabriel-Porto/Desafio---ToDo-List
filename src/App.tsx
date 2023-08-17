@@ -31,7 +31,7 @@ function App() {
     setTasks([
       ...tasks,
       {
-        id: tasks.length + 1,
+        id: new Date().getTime(),
         content: newTaskText.trim(),
         isCompleted: false,
       },
@@ -107,9 +107,9 @@ function App() {
           </div>
 
           <div className={styles.list}>
-            {tasks.map((task, index) => (
+            {tasks.map((task) => (
               <Task
-                key={index}
+                key={task.id}
                 task={task}
                 isCompleted={task.isCompleted}
                 onCheckTask={handleCheckTask}
